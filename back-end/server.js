@@ -21,14 +21,14 @@ const broadcastMessage = (message) => {
 };
 
 const messageHandler = (message) => {
-  const parsedMessage = JSON.parse(message);
+  const parsedMessage = JSON.parse(message.toString());
 
-  switch (message.event) {
+  switch (parsedMessage.event) {
     case EVENTS.MESSAGE:
-      broadcastMessage(message);
+      broadcastMessage(parsedMessage);
       break;
     case EVENTS.CONNECTION:
-      broadcastMessage(message);
+      broadcastMessage(parsedMessage);
       break;
   }
 };
